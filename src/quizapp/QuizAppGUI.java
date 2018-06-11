@@ -4,18 +4,27 @@
  * and open the template in the editor.
  */
 package quizapp;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author calde
  */
 public class QuizAppGUI extends javax.swing.JPanel {
-
     /**
      * Creates new form QuizAppGUI
      */
-    public QuizAppGUI() {
+     public QuizAppGUI() {
         initComponents();
+        EventListener listener = new EventListener();
+        EventListener listenera = new EventListener();
+        EventListener listenerb = new EventListener();
+        createQuestionButton.addActionListener(listener);
+        showAnswerButton.addActionListener(listenerb);
+        nextQuestionButton.addActionListener(listenera);
+        showAnswerButton.addActionListener(listenera); 
     }
 
     /**
@@ -29,15 +38,15 @@ public class QuizAppGUI extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        showAnswerButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        nextQuestionButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        createQuestionButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -45,10 +54,10 @@ public class QuizAppGUI extends javax.swing.JPanel {
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jButton1.setText("Show Answer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        showAnswerButton.setText("Show Answer");
+        showAnswerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                showAnswerButtonActionPerformed(evt);
             }
         });
 
@@ -58,7 +67,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
 
         jLabel4.setText("Question");
 
-        jButton3.setText("Next Question");
+        nextQuestionButton.setText("Next Question");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -76,9 +85,9 @@ public class QuizAppGUI extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(showAnswerButton, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jButton3))
+                            .addComponent(nextQuestionButton))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -90,17 +99,17 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
-                .addComponent(jButton1)
+                .addComponent(showAnswerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(jButton3)
+                .addComponent(nextQuestionButton)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Answer Questions", jPanel2);
 
-        jButton2.setText("Create Question");
+        createQuestionButton.setText("Create Question");
 
         jLabel1.setText("Question");
 
@@ -126,7 +135,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addContainerGap(165, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(createQuestionButton)
                 .addGap(333, 333, 333))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +150,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
-                .addComponent(jButton2)
+                .addComponent(createQuestionButton)
                 .addContainerGap(196, Short.MAX_VALUE))
         );
 
@@ -159,9 +168,9 @@ public class QuizAppGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void showAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAnswerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_showAnswerButtonActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -169,9 +178,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton createQuestionButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -184,5 +191,51 @@ public class QuizAppGUI extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton nextQuestionButton;
+    private javax.swing.JButton showAnswerButton;
     // End of variables declaration//GEN-END:variables
+//My variables
+  public  Boolean checkStringLength(String inputString, Integer minLength, Integer maxLength)
+    {
+        int stringLength = inputString.length();
+        
+        if (stringLength >= minLength && stringLength <= maxLength){
+            System.out.println("pass");
+            return true;           
+        }
+        else{
+            System.out.println("fail");
+            return false;
+        } 
+        } 
+    /**
+     * inner event listener class - private.  This class handles GUI Events
+     * ===Save Question Button===
+     *  When the save question button is clicked:
+     *  -the question string is passed to checkStringLength with a min length of 3 and a max length of 20.  If the string fails this test, an error box
+     *      is shown and the question must be re-entered.
+     *  -a new instance of Question is created within the instance of QuizApp
+     *  -the instance of Question is added to the arrayList of Questions in QuizApp
+     *  - the eventName is added to the select question combo boxes on the results tab and the add results tab.
+     */
+    
+        private class EventListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+           
+        if(e.getSource() == createQuestionButton){
+        System.out.println("saveEventButton fired");
+        
+        String title = question.getText();
+        Boolean test = checkStringLength(title,3,20);
+        if (test == false){
+           System.out.println("false part");
+           JOptionPane.showMessageDialog(new JFrame(),
+           "Error - event name needs to be between 3 and 20 characters in length",
+           "Event Name Error",
+           JOptionPane.ERROR_MESSAGE);
+
+           question.setText("");}
+    }
+}
+        }
 }
