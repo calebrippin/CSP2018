@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,7 +35,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         showAnswerButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        questionCreate = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         nextQuestionButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,9 +56,9 @@ public class QuizAppGUI extends javax.swing.JPanel {
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        questionCreate.setColumns(20);
+        questionCreate.setRows(5);
+        jScrollPane2.setViewportView(questionCreate);
 
         jLabel4.setText("Question");
 
@@ -188,10 +183,10 @@ public class QuizAppGUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton nextQuestionButton;
+    private javax.swing.JTextArea questionCreate;
     private javax.swing.JButton showAnswerButton;
     // End of variables declaration//GEN-END:variables
 //My variables
@@ -212,7 +207,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
      * inner event listener class - private.  This class handles GUI Events
      * ===Save Question Button===
      *  When the save question button is clicked:
-     *  -the question string is passed to checkStringLength with a min length of 3 and a max length of 20.  If the string fails this test, an error box
+     *  -the question string is passed to checkStringLength with a min length of 10 and a max length of 60.  If the string fails this test, an error box
      *      is shown and the question must be re-entered.
      *  -a new instance of Question is created within the instance of QuizApp
      *  -the instance of Question is added to the arrayList of Questions in QuizApp
@@ -220,22 +215,25 @@ public class QuizAppGUI extends javax.swing.JPanel {
      */
     
         private class EventListener implements ActionListener{
+
+        private Object question;
+        @Override
         public void actionPerformed(ActionEvent e){
            
         if(e.getSource() == createQuestionButton){
-        System.out.println("saveEventButton fired");
+        System.out.println("createQuestonButton triggered");
         
-        String title = question.getText();
-        Boolean test = checkStringLength(title,3,20);
+        String finalQuestion = questionCreate.getText();
+        Boolean test = checkStringLength(question,10,60);
         if (test == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - event name needs to be between 3 and 20 characters in length",
-           "Event Name Error",
+           "Error - question needs to be between 10 and 60 characters in length",
+           "ECreate Question Error",
            JOptionPane.ERROR_MESSAGE);
 
-           question.setText("");}
+           questionCreate.setText("");}
     }
 }
-        }
+    }
 }
