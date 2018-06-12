@@ -17,7 +17,6 @@ public class QuizAppGUI extends javax.swing.JPanel {
         EventListener listenera = new EventListener();
         EventListener listenerb = new EventListener();
         createQuestionButton.addActionListener(listener);
-        showAnswerButton.addActionListener(listenerb);
         nextQuestionButton.addActionListener(listenera);
         showAnswerButton.addActionListener(listenera); 
     }
@@ -31,23 +30,74 @@ public class QuizAppGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        showAnswerButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        questionCreate = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
-        nextQuestionButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        answerQuestionsTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         createQuestionButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        questionCreation = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        answerCreation = new javax.swing.JTextField();
+        createAnswerButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        showAnswerButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        questionShowcase = new javax.swing.JTextArea();
+        nextQuestionButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        answerShowcase = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
 
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(800, 600));
+        answerQuestionsTab.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        createQuestionButton.setText("Create Question");
+
+        jLabel1.setText("Question");
+
+        jLabel2.setText("Answer");
+
+        answerCreation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerCreationActionPerformed(evt);
+            }
+        });
+
+        createAnswerButton.setText("Create Answer");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createAnswerButton)
+                    .addComponent(createQuestionButton)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(questionCreation, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                        .addComponent(answerCreation)
+                        .addComponent(jLabel2)))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(questionCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createQuestionButton)
+                .addGap(60, 60, 60)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(answerCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(createAnswerButton)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        answerQuestionsTab.addTab("Create Questions", jPanel1);
 
         showAnswerButton.setText("Show Answer");
         showAnswerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -56,17 +106,17 @@ public class QuizAppGUI extends javax.swing.JPanel {
             }
         });
 
-        questionCreate.setColumns(20);
-        questionCreate.setRows(5);
-        jScrollPane2.setViewportView(questionCreate);
-
-        jLabel4.setText("Question");
+        questionShowcase.setColumns(20);
+        questionShowcase.setRows(5);
+        jScrollPane2.setViewportView(questionShowcase);
 
         nextQuestionButton.setText("Next Question");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        answerShowcase.setColumns(20);
+        answerShowcase.setRows(5);
+        jScrollPane1.setViewportView(answerShowcase);
+
+        jLabel3.setText("Question");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -80,17 +130,20 @@ public class QuizAppGUI extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(showAnswerButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(showAnswerButton, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(nextQuestionButton))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
@@ -102,91 +155,45 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Answer Questions", jPanel2);
-
-        createQuestionButton.setText("Create Question");
-
-        jLabel1.setText("Question");
-
-        jLabel2.setText("Answer");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
-                .addContainerGap(165, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createQuestionButton)
-                .addGap(333, 333, 333))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(createQuestionButton)
-                .addContainerGap(196, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Create Questions", jPanel1);
+        answerQuestionsTab.addTab("Answer Questions", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void answerCreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerCreationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_answerCreationActionPerformed
 
     private void showAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAnswerButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_showAnswerButtonActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField answerCreation;
+    private javax.swing.JTabbedPane answerQuestionsTab;
+    private javax.swing.JTextArea answerShowcase;
+    private javax.swing.JButton createAnswerButton;
     private javax.swing.JButton createQuestionButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton nextQuestionButton;
-    private javax.swing.JTextArea questionCreate;
+    private javax.swing.JTextField questionCreation;
+    private javax.swing.JTextArea questionShowcase;
     private javax.swing.JButton showAnswerButton;
     // End of variables declaration//GEN-END:variables
 //My variables
@@ -217,23 +224,42 @@ public class QuizAppGUI extends javax.swing.JPanel {
         private class EventListener implements ActionListener{
 
         private Object question;
-        @Override
         public void actionPerformed(ActionEvent e){
            
         if(e.getSource() == createQuestionButton){
         System.out.println("createQuestonButton triggered");
         
-        String finalQuestion = questionCreate.getText();
+        String finalQuestion = questionCreation.getText();
         Boolean test = checkStringLength(question,10,60);
         if (test == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
            "Error - question needs to be between 10 and 60 characters in length",
-           "ECreate Question Error",
+           "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
 
-           questionCreate.setText("");}
+           questionShowcase.setText("");}
     }
-}
+        }
+        }
+          private class EventListener2 implements ActionListener{
+        private Object answer;
+        public void actionPerformed(ActionEvent f){
+           
+        if(f.getSource() == createAnswerButton){
+        System.out.println("createAnswerButton triggered");
+        
+        String finalAnswer = answerCreation.getText();
+        Boolean test = checkStringLength(answer,10,80);
+        if (test == false){
+           System.out.println("false part");
+           JOptionPane.showMessageDialog(new JFrame(),
+           "Error - answer needs to be between 10 and 80 characters in length",
+           "Create Answer Error",
+           JOptionPane.ERROR_MESSAGE);
+
+           answerShowcase.setText("");}
     }
+        }
+        }
 }
