@@ -25,5 +25,13 @@ public static void main( String args[] )
         window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 	}
 
+    static void createNewQuestion(String question) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static void createNewAnswer(String answer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

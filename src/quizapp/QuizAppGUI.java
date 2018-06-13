@@ -214,52 +214,53 @@ public class QuizAppGUI extends javax.swing.JPanel {
      * inner event listener class - private.  This class handles GUI Events
      * ===Save Question Button===
      *  When the save question button is clicked:
-     *  -the question string is passed to checkStringLength with a min length of 10 and a max length of 60.  If the string fails this test, an error box
+     *  -the question string is passed to checkStringLength with a min length of 3 and a max length of 60.  If the string fails this test, an error box
      *      is shown and the question must be re-entered.
      *  -a new instance of Question is created within the instance of QuizApp
      *  -the instance of Question is added to the arrayList of Questions in QuizApp
      *  - the eventName is added to the select question combo boxes on the results tab and the add results tab.
      */
-    
-        private class EventListener implements ActionListener{
-
-        private Object question;
+     private class EventListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
            
         if(e.getSource() == createQuestionButton){
-        System.out.println("createQuestonButton triggered");
+        //Manipulate strings so that event objects can be named correctly
+        //Events are named as follows:  u13girlshighjump; u15boys100m.  All lower case, no spaces.
+        System.out.println("createQuestionButton triggered");
         
-        String finalQuestion = questionCreation.getText();
-        Boolean test = checkStringLength(question,10,60);
+        String testQuestion = questionCreation.getText();
+        Boolean test = checkStringLength(testQuestion,3,60);
         if (test == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - question needs to be between 10 and 60 characters in length",
+           "Error - question needs to be between 3 and 60 characters in length",
            "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
-
-           questionShowcase.setText("");}
+           questionCreation.setText("");}
+        else{
+        String question = questionCreation.toString();
+        QuizApp.createNewQuestion(question);//Create a new question in the QuizApp object.
     }
-        }
-        }
-          private class EventListener2 implements ActionListener{
-        private Object answer;
-        public void actionPerformed(ActionEvent f){
-           
-        if(f.getSource() == createAnswerButton){
+    }
+        if(e.getSource() == createAnswerButton){
+        //Manipulate strings so that event objects can be named correctly
+        //Events are named as follows:  u13girlshighjump; u15boys100m.  All lower case, no spaces.
         System.out.println("createAnswerButton triggered");
         
-        String finalAnswer = answerCreation.getText();
-        Boolean test = checkStringLength(answer,10,80);
+        String testAnswer = answerCreation.getText();
+        Boolean test = checkStringLength(testAnswer,1,60);
         if (test == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - answer needs to be between 10 and 80 characters in length",
-           "Create Answer Error",
+           "Error - question needs to be between 1 and 60 characters in length",
+           "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
-
-           answerShowcase.setText("");}
-    }
+           answerCreation.setText("");}
+        else{
+        String answer = answerCreation.toString();
+        QuizApp.createNewAnswer(answer);//Create a new answer in the QuizApp object.
+        }
+        }
         }
         }
 }
