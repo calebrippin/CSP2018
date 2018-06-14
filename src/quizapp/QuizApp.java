@@ -26,11 +26,17 @@ public static void main( String args[] )
 	}
 
     static void createNewQuestion(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ArrayList<String> questionsList = new ArrayList();
     }
 
     static void createNewAnswer(String answer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ArrayList<String> answerList = new ArrayList();
+    }
+
+    private static class ArrayList<T> {
+
+        public ArrayList() {
+        }
     }
 
     

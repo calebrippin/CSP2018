@@ -235,26 +235,27 @@ public class QuizAppGUI extends javax.swing.JPanel {
            "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
            questionCreation.setText("");}
-        else{
+        else {
         String question = questionCreation.toString();
         QuizApp.createNewQuestion(question);//Create a new question in the QuizApp object.
-}
-    }
+        System.out.println("success");
+        }
+        }
         if(e.getSource() == createAnswerButton){
         System.out.println("createAnswerButton triggered");
-        
         String testAnswer = answerCreation.getText();
         Boolean test = checkStringLength(testAnswer,1,60);
         if (test == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - question needs to be between 1 and 60 characters in length",
-           "Create Question Error",
+           "Error - answer needs to be between 1 and 60 characters in length",
+           "Create Answer Error",
            JOptionPane.ERROR_MESSAGE);
            answerCreation.setText("");}
         else{
         String answer = answerCreation.toString();
         QuizApp.createNewAnswer(answer);//Create a new answer in the QuizApp object.
+        System.out.println("success");
 }
         }
         }
