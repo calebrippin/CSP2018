@@ -224,8 +224,6 @@ public class QuizAppGUI extends javax.swing.JPanel {
         public void actionPerformed(ActionEvent e){
            
         if(e.getSource() == createQuestionButton){
-        //Manipulate strings so that event objects can be named correctly
-        //Events are named as follows:  u13girlshighjump; u15boys100m.  All lower case, no spaces.
         System.out.println("createQuestionButton triggered");
         
         String testQuestion = questionCreation.getText();
@@ -240,11 +238,9 @@ public class QuizAppGUI extends javax.swing.JPanel {
         else{
         String question = questionCreation.toString();
         QuizApp.createNewQuestion(question);//Create a new question in the QuizApp object.
-    }
+}
     }
         if(e.getSource() == createAnswerButton){
-        //Manipulate strings so that event objects can be named correctly
-        //Events are named as follows:  u13girlshighjump; u15boys100m.  All lower case, no spaces.
         System.out.println("createAnswerButton triggered");
         
         String testAnswer = answerCreation.getText();
@@ -259,7 +255,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
         else{
         String answer = answerCreation.toString();
         QuizApp.createNewAnswer(answer);//Create a new answer in the QuizApp object.
-        }
+}
         }
         }
         }
