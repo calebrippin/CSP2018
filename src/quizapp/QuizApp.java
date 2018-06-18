@@ -26,18 +26,11 @@ public static void main( String args[] )
 	}
 
     static void createNewQuestion(String question) {
-     ArrayList<String> questionsList = new ArrayList();
+
     }
 
     static void createNewAnswer(String answer) {
-     ArrayList<String> answerList = new ArrayList();
+   
     }
 
-    private static class ArrayList<T> {
-
-        public ArrayList() {
-        }
-    }
-
-    
 }

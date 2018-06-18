@@ -1,4 +1,5 @@
 package quizapp;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -18,7 +19,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
         EventListener listenerb = new EventListener();
         createQuestionButton.addActionListener(listener);
         nextQuestionButton.addActionListener(listenera);
-        showAnswerButton.addActionListener(listenera); 
+        showAnswerButton.addActionListener(listenera);
     }
 
     /**
@@ -239,6 +240,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
         String question = questionCreation.toString();
         QuizApp.createNewQuestion(question);//Create a new question in the QuizApp object.
         System.out.println("success");
+        questionCreation.setText("");
         }
         }
         if(e.getSource() == createAnswerButton){
@@ -256,8 +258,15 @@ public class QuizAppGUI extends javax.swing.JPanel {
         String answer = answerCreation.toString();
         QuizApp.createNewAnswer(answer);//Create a new answer in the QuizApp object.
         System.out.println("success");
+        answerCreation.setText("");
 }
         }
+          if(e.getSource() == answerQuestionsTab){
+        System.out.println("answerQuestionsTab opened");
+        String questionf = QuizApp.getQuestionF(question);
+        questionShowcase.setText(questionf);
+        }
+
         }
         }
 }
