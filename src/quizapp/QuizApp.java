@@ -24,13 +24,8 @@ public static void main( String args[] )
     window.pack(); 
         window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 	}
+    static void createNewQuestion(String questionName, String question, String answer) {
 
-    static void createNewQuestion(String question) {
-
-    }
-
-    static void createNewAnswer(String answer) {
-   
     }
 
 }
