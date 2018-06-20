@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 /**
  * @author calde
- * @version 1
- * Holds the questionList information and a private inner class of the questions and their answers.  The data for each question is held as an array of
- * questions (question object).  Each question has its data held within the question instance.  This means that the data for the question is encapsulated within the 
- * question object.  This is much more secure than a general array of results.
+ * @version 
  */
 public class FinalQuestions
 {
@@ -15,45 +12,45 @@ public class FinalQuestions
     private String questionName;
     private String question;
     private String answer;
-    private ArrayList<Question> questions = new ArrayList<Question>();
-
-
-     /**
-      * Add competitor to the ArrayList of competitors
-      */
-     public void addQuestion(String questionName, String question, String answer){
-        questions.add(new Question (questionName, question, answer));
-         System.out.println("Added Question");
-        }
-     
-     /** inner class Person */
-    private class Question{
-        
-        private String questionName;
-        private String question;
-        private String answer;
-        
-        public Question(String questionName, String question, String answer){
-        
-            this.questionName = questionName;
-            this.question = question;
-            this.answer = answer;
-              
-        }
-        
-        public String getQuestionName(){
-           String name = questionName;
-           return name;
-        }
-        
-        public String getQuestion(){
-        return question;
-        }
-                
-        public String getAnswer(){
-            return answer;
-        }
-            
-        }
-        
+    /**
+     * Constructor for objects of class FinalQuestions
+     * @PARAM String questionName - the name of the question
+     * @PARAM String question -  the question
+     * @PARAM String answer - the answer
+     */
+    public FinalQuestions(String questionName, String question, String answer)
+    {
+        // initialise instance variables
+        this.questionName = questionName;
+        this.question = question;
+        this.answer = answer;
+    }
+    /**
+     * getQuestionName
+     * @RETURN String questionName
+     * 
+     */
+     public String getQuestionName()
+     {
+         return questionName;
+         
+     }  
+         /**
+     * getQuestion
+     * @RETURN String eventName
+     * 
+     * Return the instances eventName
+     * 
+     */
+     public String getQuestion(String questionName)
+     {
+         return question;
+         
+     }
+          public String getAnswer(String questionName)
+     {
+         return answer;
+         
+     }
+ 
     }

@@ -46,8 +46,8 @@ public class QuizAppGUI extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         answerShowcase = new javax.swing.JTextArea();
         questionList = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         showAnswerButton = new javax.swing.JButton();
+        showQuestion = new javax.swing.JButton();
 
         answerQuestionsTab.setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -112,11 +112,11 @@ public class QuizAppGUI extends javax.swing.JPanel {
         answerShowcase.setRows(5);
         jScrollPane1.setViewportView(answerShowcase);
 
-        questionList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel3.setText("Choose Question");
+        questionList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Question" }));
 
         showAnswerButton.setText("Show Answer");
+
+        showQuestion.setText("Show Question");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,16 +125,16 @@ public class QuizAppGUI extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showAnswerButton)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(questionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(showAnswerButton))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                                .addComponent(questionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(showQuestion)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -143,14 +143,14 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(showQuestion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(showAnswerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         answerQuestionsTab.addTab("Answer Questions", jPanel2);
@@ -179,7 +179,6 @@ public class QuizAppGUI extends javax.swing.JPanel {
     private javax.swing.JButton createQuestionButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -190,6 +189,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
     private javax.swing.JTextField questionNameCreation;
     private javax.swing.JTextArea questionShowcase;
     private javax.swing.JButton showAnswerButton;
+    private javax.swing.JButton showQuestion;
     // End of variables declaration//GEN-END:variables
 //My variables
   public  Boolean checkStringLength(String inputString, Integer minLength, Integer maxLength)
@@ -232,23 +232,22 @@ public class QuizAppGUI extends javax.swing.JPanel {
            questionCreation.setText("");}
         else {
         String questionName = questionNameCreation.toString();
-        System.out.println(questionName);
         String question = questionCreation.toString();
-        System.out.println(question);
         String answer = answerCreation.toString();
-        System.out.println(answer);
         QuizApp.createNewQuestion(questionName, question, answer);//Create a new question in the QuizApp object.
         System.out.println("success");
         questionList.addItem(questionName);
+        questionNameCreation.setText("");
         questionCreation.setText("");
+        answerCreation.setText("");
         }
         }
-          if(e.getSource() == questionList){
+          if(e.getSource() == showQuestion){
         System.out.println("Showing Question");
         String questionName = questionList.getSelectedItem().toString();
-        FinalQuestions chosenQuestion = FinalQuestions.getQuestionName(questionName);
-        String showcaseQuestion = FinalQuestions.getShowQuestion();
-        questionShowcase.setText(showQuestion);
+        FinalQuestions question = QuizApp.getQuestion(questionName);
+        String question = FinalQuestions.getQuestion(questionName);
+        questionShowcase.setText(question);
         }
 
         }

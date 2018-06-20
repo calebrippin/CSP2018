@@ -1,31 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quizapp;
-
+import java.util.ArrayList;
 /**
- *
- * @author calde
+ * @calde
+ * @version (1)
+ * Creates GUI, holds arrayList of Questions,
  */
-public class QuizApp {
+
+public class QuizApp
+{
+    // instance variables
+    private ArrayList<FinalQuestions> quizAppQuestions = new ArrayList<FinalQuestions>();
 
     /**
-     * @param args the command line arguments
+     * Constructor for objects of class SportsDay
      */
-public static void main( String args[] )
+    public QuizApp()
+    {
+     
+    }    
+    /**
+     * Returns a question from the arraylist of questions.
+     */
+    public void createNewQuestion(String questionName, String question, String answer)
+    {
+        FinalQuestions Question = new FinalQuestions(questionName, question, answer);
+        quizAppQuestions.add(Question);
+    }
+    /**
+     * Returns an event from the arraylist of events, given the eventName.
+     */
+    public FinalQuestions getQuestion(String name)
+    {
+        FinalQuestions question = null;
+        for (FinalQuestions ev : quizAppQuestions){
+            if (ev.getQuestionName().equals(name)){
+                System.out.println("found object:" +ev.getQuestionName().toString() );
+                question = ev;
+            }
+        }
+        return question;
+        
+        
+    }
+    // Main method to get things started
+	public static void main( String args[] )
 	{
 		// Create an instance of the gui application
-		    
-    javax.swing.JFrame window = new javax.swing.JFrame("QuizApp");
-    window.getContentPane().add(new QuizAppGUI());
-    window.setVisible(true);  
-    window.pack(); 
-        window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		
+		QuizAppGUI mainFrame	= new QuizAppGUI();// new gui instance
+		mainFrame.setVisible( true );
 	}
-    static void createNewQuestion(String questionName, String question, String answer) {
-
-    }
-
 }
