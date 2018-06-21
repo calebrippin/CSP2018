@@ -5,8 +5,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
- *
+ * This is the GUI for the program.  It uses a 2 tabbed panel layout.  Event handling and logic is handeled from here.  An instance of class QuizApp
+ * is created.  QuizApp is the class that holds the data of the quizapp, plus associated methods.
+ * 
  * @author calde
+ * @22/06/2018
  */
 public class QuizAppGUI extends javax.swing.JPanel {
     /**
@@ -216,6 +219,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
      *  - the eventName is added to the select question combo boxes on the results tab and the add results tab.
      */
      private class EventListener implements ActionListener{
+        @Override
         public void actionPerformed(ActionEvent e){
            
         if(e.getSource() == createQuestionButton){
@@ -232,8 +236,11 @@ public class QuizAppGUI extends javax.swing.JPanel {
            questionCreation.setText("");}
         else {
         String questionName = questionNameCreation.toString();
+        System.out.println(questionName);
         String question = questionCreation.toString();
+        System.out.println(question);
         String answer = answerCreation.toString();
+        System.out.println(answer);
         QuizApp.createNewQuestion(questionName, question, answer);//Create a new question in the QuizApp object.
         System.out.println("success");
         questionList.addItem(questionName);
@@ -246,9 +253,9 @@ public class QuizAppGUI extends javax.swing.JPanel {
         System.out.println("Showing Question");
         String questionName = questionList.getSelectedItem().toString();
         FinalQuestions question = QuizApp.getQuestion(questionName);
-        String question = FinalQuestions.getQuestion(questionName);
+        String questionFinal = FinalQuestions.getQuestion(questionName);
         String answer = FinalQuestions.getAnswer(questionName);
-        questionShowcase.setText(question);
+        questionShowcase.setText(questionFinal);
         answerShowcase.setText(answer);
         answerShowcase.setVisible(false);
         }

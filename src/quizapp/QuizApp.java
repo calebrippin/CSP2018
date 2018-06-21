@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class QuizApp
 {
     // instance variables
-    private ArrayList<FinalQuestions> quizAppQuestions = new ArrayList<FinalQuestions>();
+    public static ArrayList<FinalQuestions> quizAppQuestions = new ArrayList<FinalQuestions>();
 
     /**
      * Constructor for objects of class SportsDay
@@ -17,24 +17,29 @@ public class QuizApp
     public QuizApp()
     {
      
-    }    
+    } 
     /**
      * Returns a question from the arraylist of questions.
+     * @param questionName
+     * @param question
+     * @param answer
      */
-    public void createNewQuestion(String questionName, String question, String answer)
+    public static void createNewQuestion(String questionName, String question, String answer)
     {
         FinalQuestions Question = new FinalQuestions(questionName, question, answer);
         quizAppQuestions.add(Question);
     }
     /**
-     * Returns an event from the arraylist of events, given the eventName.
+     * Returns a question from the arraylist of questions, given the questionName.
+     * @param name
+     * @return 
      */
-    public FinalQuestions getQuestion(String name)
+    public static FinalQuestions getQuestion(String name)
     {
         FinalQuestions question = null;
         for (FinalQuestions ev : quizAppQuestions){
             if (ev.getQuestionName().equals(name)){
-                System.out.println("found object:" +ev.getQuestionName().toString() );
+                System.out.println("found object:" +ev.getQuestionName());
                 question = ev;
             }
         }
@@ -42,8 +47,8 @@ public class QuizApp
         
         
     }
-    // Main method to get things started
-	public static void main( String args[] )
+            // Main method to get things started
+      	public static void main( String args[] )
 	{
 		// Create an instance of the gui application
 		
