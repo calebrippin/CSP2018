@@ -247,9 +247,15 @@ public class QuizAppGUI extends javax.swing.JPanel {
         String questionName = questionList.getSelectedItem().toString();
         FinalQuestions question = QuizApp.getQuestion(questionName);
         String question = FinalQuestions.getQuestion(questionName);
+        String answer = FinalQuestions.getAnswer(questionName);
         questionShowcase.setText(question);
+        answerShowcase.setText(answer);
+        answerShowcase.setVisible(false);
         }
-
+          if(e.getSource() == showAnswerButton){
+        System.out.println("Showing Answer");
+        answerShowcase.setVisible(true);
+        }
         }
         }
 }
