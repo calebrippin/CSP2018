@@ -275,11 +275,11 @@ public class QuizAppGUI extends javax.swing.JFrame {
            JOptionPane.ERROR_MESSAGE);
            questionCreation.setText("");}
         else {
-        String questionName = questionNameCreation.toString();
+        String questionName = questionNameCreation.getText();
         System.out.println(questionName);
-        String question = questionCreation.toString();
+        String question = questionCreation.getText();
         System.out.println(question);
-        String answer = answerCreation.toString();
+        String answer = answerCreation.getText();
         System.out.println(answer);
         QuizApp.createNewQuestion(questionName, question, answer);//Create a new question in the QuizApp object.
         System.out.println("success");
@@ -289,7 +289,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         answerCreation.setText("");
         }
         }
-          if(e.getSource() == showQuestion){
+        if(e.getSource() == showQuestion){
         System.out.println("Showing Question");
         String questionName = questionList.getSelectedItem().toString();
         FinalQuestions question = QuizApp.getQuestion(questionName);
