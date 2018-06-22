@@ -288,17 +288,23 @@ public class QuizAppGUI extends javax.swing.JFrame {
         questionCreation.setText("");
         answerCreation.setText("");
         }
+        String array = QuizApp.quizAppQuestions.toString();
+        System.out.println(array);
         }
+        
         if(e.getSource() == showQuestionButton){
-        System.out.println("Showing Question");
-        String questionName = questionList.getSelectedItem().toString();
-        FinalQuestions question = QuizApp.getQuestion(questionName);
-        String questionFinal = FinalQuestions.getQuestion(questionName);
-        String answer = FinalQuestions.getAnswer(questionName);
-        questionShowcase.setText(questionFinal);
-        answerShowcase.setText(answer);
-        answerShowcase.setVisible(true);
+            System.out.println("Showing Question");
+            String questionName = questionList.getSelectedItem().toString();
+            FinalQuestions question = QuizApp.getQuestion(questionName);
+            String questionFinal = FinalQuestions.getQuestion(questionName);
+            String answer = FinalQuestions.getAnswer(questionName);
+            System.out.println(questionFinal);
+            questionShowcase.setText(questionFinal);
+            System.out.println(answer);
+            answerShowcase.setText(answer);
+            answerShowcase.setVisible(false);
         }
+        
           if(e.getSource() == showAnswerButton){
         System.out.println("Showing Answer");
         answerShowcase.setVisible(true);

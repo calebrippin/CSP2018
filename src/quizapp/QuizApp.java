@@ -19,7 +19,7 @@ public class QuizApp
      
     } 
     /**
-     * Returns a question from the arraylist of questions.
+     * Adds a question into the arraylist of questions.
      * @param questionName
      * @param question
      * @param answer
@@ -43,10 +43,9 @@ public class QuizApp
                 question = ev;
             }
         }
-        return question;
-        
-        
+        return question;   
     }
+
             // Main method to get things started
       	public static void main( String args[] )
 	{
