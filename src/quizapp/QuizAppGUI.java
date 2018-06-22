@@ -83,7 +83,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
                         .addComponent(answerCreation)
                         .addComponent(jLabel2))
                     .addComponent(questionNameCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,11 +162,11 @@ public class QuizAppGUI extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -208,6 +208,13 @@ public class QuizAppGUI extends javax.swing.JPanel {
             return false;
         } 
         } 
+        	public static void main( String args[] )
+	{
+		// Create an instance of the gui application
+		
+		QuizAppGUI mainFrame	= new QuizAppGUI();// new gui instance
+		mainFrame.setVisible( true );
+	}
     /**
      * inner event listener class - private.  This class handles GUI Events
      * ===Save Question Button===
