@@ -148,7 +148,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="questionList" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="showQuestion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="showQuestionButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -164,7 +164,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="questionList" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="showQuestion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="showQuestionButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="152" max="-2" attributes="0"/>
@@ -225,7 +225,7 @@
                 <Property name="text" type="java.lang.String" value="Show Answer"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="showQuestion">
+            <Component class="javax.swing.JButton" name="showQuestionButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Show Question"/>
               </Properties>

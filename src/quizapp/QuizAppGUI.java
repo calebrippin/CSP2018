@@ -52,7 +52,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         answerShowcase = new javax.swing.JTextArea();
         questionList = new javax.swing.JComboBox<>();
         showAnswerButton = new javax.swing.JButton();
-        showQuestion = new javax.swing.JButton();
+        showQuestionButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,7 +123,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
 
         showAnswerButton.setText("Show Answer");
 
-        showQuestion.setText("Show Question");
+        showQuestionButton.setText("Show Question");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -140,7 +140,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(questionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(showQuestion)))
+                                .addComponent(showQuestionButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -150,7 +150,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showQuestion))
+                    .addComponent(showQuestionButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
@@ -232,7 +232,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
     private javax.swing.JTextField questionNameCreation;
     private javax.swing.JTextArea questionShowcase;
     private javax.swing.JButton showAnswerButton;
-    private javax.swing.JButton showQuestion;
+    private javax.swing.JButton showQuestionButton;
     // End of variables declaration//GEN-END:variables
 //My variables
   public  Boolean checkStringLength(String inputString, Integer minLength, Integer maxLength)
@@ -289,7 +289,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         answerCreation.setText("");
         }
         }
-        if(e.getSource() == showQuestion){
+        if(e.getSource() == showQuestionButton){
         System.out.println("Showing Question");
         String questionName = questionList.getSelectedItem().toString();
         FinalQuestions question = QuizApp.getQuestion(questionName);
@@ -297,7 +297,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         String answer = FinalQuestions.getAnswer(questionName);
         questionShowcase.setText(questionFinal);
         answerShowcase.setText(answer);
-        answerShowcase.setVisible(false);
+        answerShowcase.setVisible(true);
         }
           if(e.getSource() == showAnswerButton){
         System.out.println("Showing Answer");
