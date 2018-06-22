@@ -24,6 +24,7 @@ public class QuizAppGUI extends javax.swing.JFrame {
         EventListener listenerb = new EventListener();
         createQuestionButton.addActionListener(listener);
         questionList.addActionListener(listenera);
+        showQuestionButton.addActionListener(listenera);
         showAnswerButton.addActionListener(listenera);
     }
 
