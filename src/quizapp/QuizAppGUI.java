@@ -266,16 +266,34 @@ public class QuizAppGUI extends javax.swing.JFrame {
         if(e.getSource() == createQuestionButton){
         System.out.println("createQuestionButton triggered");
         
-        String testQuestion = questionCreation.getText();
-        Boolean test = checkStringLength(testQuestion,3,60);
-        if (test == false){
+        String tQuestionName = questionNameCreation.getText();
+        String tQuestion = questionCreation.getText();
+        String tAnswer = answerCreation.getText();
+        Boolean testQuestionName = checkStringLength(tQuestionName,3,15);
+        Boolean testQuestion = checkStringLength(tQuestion,3,60);
+        Boolean testAnswer = checkStringLength(tAnswer,3,60);
+        if (testQuestionName == false){
+           System.out.println("false part");
+           JOptionPane.showMessageDialog(new JFrame(),
+           "Error - question name needs to be between 3 and 15 characters in length",
+           "Create Question Error",
+           JOptionPane.ERROR_MESSAGE);
+           questionNameCreation.setText("");}
+        else if (testQuestion == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
            "Error - question needs to be between 3 and 60 characters in length",
            "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
-           questionCreation.setText("");}
-        else {
+           questionCreation.setText("");
+        }else if (testAnswer == false){
+           System.out.println("false part");
+           JOptionPane.showMessageDialog(new JFrame(),
+           "Error - answer needs to be between 3 and 60 characters in length",
+           "Create Question Error",
+           JOptionPane.ERROR_MESSAGE);
+           answerCreation.setText("");
+        }else {
         String questionName = questionNameCreation.getText();
         System.out.println(questionName);
         String question = questionCreation.getText();
