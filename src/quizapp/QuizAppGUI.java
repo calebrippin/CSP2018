@@ -1,21 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package quizapp;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
- * This is the GUI for the program.  It uses a 2 tabbed panel layout.  Event handling and logic is handeled from here.  An instance of class QuizApp
- * is created.  QuizApp is the class that holds the data of the quizapp, plus associated methods.
- * 
+ *
  * @author calde
- * @22/06/2018
  */
-public class QuizAppGUI extends javax.swing.JPanel {
+public class QuizAppGUI extends javax.swing.JFrame {
+
     /**
      * Creates new form QuizAppGUI
      */
-     public QuizAppGUI() {
+    public QuizAppGUI() {
         initComponents();
         EventListener listener = new EventListener();
         EventListener listenera = new EventListener();
@@ -52,6 +54,8 @@ public class QuizAppGUI extends javax.swing.JPanel {
         showAnswerButton = new javax.swing.JButton();
         showQuestion = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         answerQuestionsTab.setPreferredSize(new java.awt.Dimension(800, 600));
 
         createQuestionButton.setText("Create Question");
@@ -83,7 +87,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
                         .addComponent(answerCreation)
                         .addComponent(jLabel2))
                     .addComponent(questionNameCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +106,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addComponent(answerCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(createQuestionButton)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         answerQuestionsTab.addTab("Create Questions", jPanel1);
@@ -153,27 +157,63 @@ public class QuizAppGUI extends javax.swing.JPanel {
                 .addComponent(showAnswerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         answerQuestionsTab.addTab("Answer Questions", jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(answerQuestionsTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(answerQuestionsTab, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerCreationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerCreationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_answerCreationActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(QuizAppGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(QuizAppGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(QuizAppGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(QuizAppGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new QuizAppGUI().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answerCreation;
@@ -207,14 +247,7 @@ public class QuizAppGUI extends javax.swing.JPanel {
             System.out.println("fail");
             return false;
         } 
-        } 
-        	public static void main( String args[] )
-	{
-		// Create an instance of the gui application
-		
-		QuizAppGUI mainFrame	= new QuizAppGUI();// new gui instance
-		mainFrame.setVisible( true );
-	}
+    }
     /**
      * inner event listener class - private.  This class handles GUI Events
      * ===Save Question Button===
