@@ -6,9 +6,9 @@ package quizapp;
 public class FinalQuestions
 {
     // instance variables 
-    private static String questionName;
-    private static String question;
-    private static String answer;
+    private String questionName;
+    private String question;
+    private String answer;
     /**
      * Constructor for objects of class FinalQuestions
      * @param questionName
@@ -21,9 +21,9 @@ public class FinalQuestions
     public FinalQuestions(String questionName, String question, String answer)
     {
         // initialise instance variables
-        FinalQuestions.questionName = questionName;
-        FinalQuestions.question = question;
-        FinalQuestions.answer = answer;
+        this.questionName = questionName;
+        this.question = question;
+        this.answer = answer;
     }
     /**
      * getQuestionName
@@ -45,12 +45,12 @@ public class FinalQuestions
      * Return the instances eventName
      * 
      */
-     public static String getQuestion(String questionName)
+     public String getQuestion(String questionName)
      {
          return question;
          
      }
-          public static String getAnswer(String questionName)
+          public String getAnswer(String questionName)
      {
          return answer;
          

@@ -236,7 +236,9 @@ public class QuizAppGUI extends javax.swing.JFrame {
     private javax.swing.JButton showQuestionButton;
     // End of variables declaration//GEN-END:variables
 //My variables
-  public  Boolean checkStringLength(String inputString, Integer minLength, Integer maxLength)
+ private QuizApp listQuestion = new QuizApp();
+         
+ public  Boolean checkStringLength(String inputString, Integer minLength, Integer maxLength)
     {
         int stringLength = inputString.length();
         
@@ -270,8 +272,8 @@ public class QuizAppGUI extends javax.swing.JFrame {
         String tQuestion = questionCreation.getText();
         String tAnswer = answerCreation.getText();
         Boolean testQuestionName = checkStringLength(tQuestionName,3,15);
-        Boolean testQuestion = checkStringLength(tQuestion,3,60);
-        Boolean testAnswer = checkStringLength(tAnswer,3,60);
+        Boolean testQuestion = checkStringLength(tQuestion,5,100);
+        Boolean testAnswer = checkStringLength(tAnswer,5,100);
         if (testQuestionName == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
@@ -282,14 +284,14 @@ public class QuizAppGUI extends javax.swing.JFrame {
         else if (testQuestion == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - question needs to be between 3 and 60 characters in length",
+           "Error - question needs to be between 5 and 100 characters in length",
            "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
            questionCreation.setText("");
         }else if (testAnswer == false){
            System.out.println("false part");
            JOptionPane.showMessageDialog(new JFrame(),
-           "Error - answer needs to be between 3 and 60 characters in length",
+           "Error - answer needs to be between 5 and 100 characters in length",
            "Create Question Error",
            JOptionPane.ERROR_MESSAGE);
            answerCreation.setText("");
@@ -300,23 +302,23 @@ public class QuizAppGUI extends javax.swing.JFrame {
         System.out.println(question);
         String answer = answerCreation.getText();
         System.out.println(answer);
-        QuizApp.createNewQuestion(questionName, question, answer);//Create a new question in the QuizApp object.
+        listQuestion.createNewQuestion(questionName, question, answer);//Create a new question in the QuizApp object.
         System.out.println("success");
         questionList.addItem(questionName);
         questionNameCreation.setText("");
         questionCreation.setText("");
         answerCreation.setText("");
         }
-        String array = QuizApp.quizAppQuestions.toString();
+        String array = listQuestion.quizAppQuestions.toString();
         System.out.println(array);
         }
         
         if(e.getSource() == showQuestionButton){
             System.out.println("Showing Question");
             String questionName = questionList.getSelectedItem().toString();
-            FinalQuestions question = QuizApp.getQuestion(questionName);
-            String questionFinal = FinalQuestions.getQuestion(questionName);
-            String answer = FinalQuestions.getAnswer(questionName);
+            FinalQuestions question = listQuestion.getQuestion(questionName);
+            String questionFinal = question.getQuestion(questionName);
+            String answer = question.getAnswer(questionName);
             System.out.println(questionFinal);
             questionShowcase.setText(questionFinal);
             System.out.println(answer);
